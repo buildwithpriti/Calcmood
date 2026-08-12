@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans antialiased text-ink-800 dark:text-ink-100;
+    -webkit-tap-highlight-color: transparent;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+  }
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.6;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-500 px-6 py-3 font-semibold text-white shadow-lg shadow-brand-500/30 transition-all duration-200 hover:bg-brand-600 hover:shadow-brand-500/40 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-white/70 px-5 py-2.5 font-semibold text-ink-700 shadow-sm ring-1 ring-ink-200 transition-all hover:bg-white hover:shadow-md active:scale-95 dark:bg-white/10 dark:text-ink-100 dark:ring-white/15 dark:hover:bg-white/15;
+  }
+  .card {
+    @apply rounded-3xl bg-white/80 p-6 shadow-xl shadow-ink-900/5 ring-1 ring-ink-200/60 backdrop-blur-md dark:bg-ink-800/60 dark:ring-white/10;
+  }
+  .field-label {
+    @apply mb-1.5 block text-sm font-semibold text-ink-600 dark:text-ink-300;
+  }
+  .field-input {
+    @apply w-full rounded-2xl border-0 bg-ink-100 px-4 py-3 text-ink-900 shadow-inner outline-none ring-1 ring-transparent transition focus:ring-2 focus:ring-brand-400 dark:bg-ink-900/60 dark:text-ink-50;
+  }
+}
+
+/* Animated gradient backdrop */
+.app-bg {
+  background: linear-gradient(135deg, #fef3f4, #fef9f3, #eef2ff, #ecfdf5, #fef3f4);
+  background-size: 300% 300%;
+}
+.dark .app-bg {
+  background: linear-gradient(135deg, #0b1120, #1e1b4b, #0f172a, #111827, #0b1120);
+  background-size: 300% 300%;
+}
+
+/* Hide scrollbar for chip row */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
